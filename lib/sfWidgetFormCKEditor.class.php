@@ -28,8 +28,9 @@ class sfWidgetFormCKEditor extends sfWidgetFormTextarea {
       foreach($jsoptions as $k => $v)
       {
         $html .= $sep.$k." : '".$v."'";
+        $sep = ',';
       }
-      $sep = ',';
+      
     }
     
     $html .="});";
