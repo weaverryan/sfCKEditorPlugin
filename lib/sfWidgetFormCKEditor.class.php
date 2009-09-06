@@ -21,13 +21,15 @@ class sfWidgetFormCKEditor extends sfWidgetFormTextarea {
     $html = "<script type='text/javascript' >";
     $html  .= " CKEDITOR.replace('".$name."',{";
     
-    $jsoptions = $this->getOption('config');
+    $jsoptions = $this->getOption('jsoptions');
     if($jsoptions)
     {
+      $sep = '';
       foreach($jsoptions as $k => $v)
       {
-        $html .= $k." : '".$v."'";
+        $html .= $sep.$k." : '".$v."'";
       }
+      $sep = ',';
     }
     
     $html .="});";
