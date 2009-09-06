@@ -1,0 +1,20 @@
+How to install:
+
+    symfony plugin:install -alpha sfCKEditorPlugin
+
+How to use:
+
+    [php]
+    $this->widgetSchema['my_editor'] = new sfWidgetFormCKEditor();
+
+Set CKEditor config param:
+
+    [php]
+    $this->widgetSchema['my_editor'] = new sfWidgetFormCKEditor(array('jsconfig'=>array('param' => 'value'));
+
+Define  the CKEditor path in settings.yml :
+
+    all:
+      .settings:
+        rich_text_ck_js_file : ckeditor/ckeditor.js
+    
