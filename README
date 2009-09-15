@@ -1,6 +1,6 @@
 How to install:
 
-    symfony plugin:install -alpha sfCKEditorPlugin
+    symfony plugin:install sfCKEditorPlugin
 
 How to use:
 
