@@ -10,7 +10,7 @@ How to use:
 Set CKEditor config param:
 
     [php]
-    $this->widgetSchema['my_editor'] = new sfWidgetFormCKEditor(array('jsconfig'=>array('param' => 'value'));
+    $this->widgetSchema['my_editor'] = new sfWidgetFormCKEditor(array('jsoptions'=>array('param' => 'value'));
 
 Define  the CKEditor path in settings.yml :
 
