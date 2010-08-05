@@ -7,13 +7,16 @@ class sfWidgetFormCKEditor extends sfWidgetFormTextarea {
   
   protected function configure($options = array(), $attributes = array())
   {
+    // relative url root to compensate for relative paths not specified in app.yml
+    $root = sfContext::getInstance()->getRequest()->getRelativeUrlRoot();
+    
     $editorClass = 'CKEditor';
 	  if (!class_exists($editorClass))
 	  {
    	  throw new sfConfigurationException(sprintf('CKEditor class not found'));    
 	  }
     $this->_editor = new $editorClass();
-    $this->_editor->basePath = sfConfig::get('app_ckeditor_basePath');
+    $this->_editor->basePath = $root . sfConfig::get('app_ckeditor_basePath');
     $this->_editor->returnOutput = true;
     if(sfConfig::get('app_ckfinder_active', false) == 'true')
     {
@@ -23,7 +26,7 @@ class sfWidgetFormCKEditor extends sfWidgetFormTextarea {
      	  throw new sfConfigurationException(sprintf('CKFinder class not found'));    
   	  }      
       $this->_finder = new $finderClass();
-      $this->_finder->BasePath = sfConfig::get('app_ckfinder_basePath');
+      $this->_finder->BasePath = $root . sfConfig::get('app_ckfinder_basePath');
       $this->_finder->SetupCKEditorObject($this->_editor);
     }
     if(isset($options['jsoptions']))
