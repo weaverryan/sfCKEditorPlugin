@@ -2,19 +2,20 @@
 
     symfony plugin:install sfCKEditorPlugin
 
-You need to create an autoload.yml in the project config directory.
+You need to create an autoload.yml in the project config directory. Assuming
+you've downloaded ckeditor and placed it in your `web/ckeditor` directory:
   
     autoload:
       ckeditor:
         name:       ckeditor
-        path:       path/to/ckeditor/dir
+        path:       %SF_WEB_DIR%/ckeditor
         recursive:  on
 
 You need to set the basePath of the ckeditor in an app.yml.
   
     all:
       ckeditor:
-        basePath:         'path/to/ckeditor/'
+        basePath:         '/ckeditor/'
 
       
 ##How to use:##
